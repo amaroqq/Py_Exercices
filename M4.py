@@ -54,8 +54,8 @@ inside = 0
 total = int(input("How many total points shall there be? "))
 cnt = 0
 while (cnt<total):
-    px = float(random.randrange(0,100000001))
-    py = float(random.randrange(0,100000001))
+    px = float(random.randrange(-100000001,100000001))
+    py = float(random.randrange(-100000001,100000001))
     px /= 100000000
     py /= 100000000
     if ((px*px+py*py)<1):
