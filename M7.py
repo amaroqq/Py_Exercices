@@ -34,7 +34,7 @@ while(exit==0):
         case "New entry"|"new entry":
             name=input("Enter the name: ")
             key=input("Enter the ICAO code: ")
-            datab.update({key,name})
+            datab.update({key:name})
         case "Fetch entry"|"fetch entry":
             key=input("Enter the ICAO code: ")
             print(datab[key])
@@ -42,3 +42,4 @@ while(exit==0):
             exit=1
         case _:
             print("You entered an undefined option. Try again. ")
+    testinput=input("Enter 'New entry', 'Fetch entry' or 'Quit': ")
