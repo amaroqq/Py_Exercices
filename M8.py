@@ -26,11 +26,11 @@ except mariadb.Error as e:
     print(f"Error creating table: {e}")    
 #Task 2
 acode=input("Enter the area code: ")
-sql_code2="SELECT name, type from airport where iso_country = ? order by type"
+sql_code2="SELECT name from airport where iso_country = ? order by type"
 try:
     cur.execute(sql_code2, (acode,))
-    for (name, type) in cur:
-        print(f"Airport {name} of type {type}")
+    for (name) in cur:
+        print(f"Airport name: {name}")
 except mariadb.Error as e:
     print(f"Error creating table: {e}")       
 #Task 3
