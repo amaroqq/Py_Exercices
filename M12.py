@@ -13,21 +13,19 @@ except requests.exceptions.RequestException as e:
 munic = input("Enter municipality name: ")
 apikey='placeholder'
 #no real key yet
-req = f"http://api.openweathermap.org/geo/1.0/direct?q={munic}&limit=5&appid={apikey}"
+req = f"http://api.openweathermap.org/geo/1.0/direct?q={munic}&limit=1&appid={apikey}"
 try:
     rp = requests.get(req)
-    # print(json.dumps(rp.json(), indent=2))
     if (rp.status_code==200):
-        print("im here")
         rpjson=rp.json()
-        latm = rpjson["lat"]
-        lonm = rpjson["lon"]
-        req=f"https://api.openweathermap.org/data/3.0/onecall?lat={latm}&lon={lonm}&appid={apikey}"
+        latm = rpjson[0]["lat"]
+        lonm = rpjson[0]["lon"]
+        req=f"https://api.openweathermap.org/data/2.5/weather?lat={latm}&lon={lonm}&appid={apikey}"
         try:
             rp = requests.get(req)
             if (rp.status_code==200):
                 rpjson=rp.json()
-                print(f'Weather outside is {rpjson["weather"]["description"]}, temperature is {rpjson["main"]["temp"]}')
+                print(f'Weather outside is {rpjson["weather"][0]["description"]}, temperature is {(rpjson["main"]["temp"]-273.15):.2f}')
         except requests.exceptions.RequestException as e:
             print("Request couldn't be completed")
 except requests.exceptions.RequestException as e:
