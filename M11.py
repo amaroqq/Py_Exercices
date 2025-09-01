@@ -19,7 +19,7 @@ class Magazine(Publication):
             self.chiefed=c
         def print_information(self):
             print(f"Name: {self.name}, chief editor: {self.chiefed}")
-
+#Task 2
 class Car:
     regis=0
     maxsp=0
@@ -40,14 +40,30 @@ class Car:
         self.distance+=hours*self.speed
 class ElectricCar(Car):
     capacitykwh=0
+    def __init__(self,reg,maxs,c):
+            super().__init__(reg,maxs)
+            self.capacitykwh=c
 class GasolineCar(Car):
     voltank=0
-
+    def __init__(self,reg,maxs,v):
+            super().__init__(reg,maxs)
+            self.voltank=v
 
 def main():
     p1=Magazine("Aki Hyyppä","Donald Duck")
     p2=Book("Rosa Liksom", 192, "Compartment No. 6")
     p1.print_information()
     p2.print_information()
+
+    c1=ElectricCar("ABC-15",180,52.5)
+    c2=GasolineCar("ACD-123",165,32.3)
+    sp1=int(input("Enter speed for car 1: "))
+    sp2=int(input("Enter speed for car 2: "))
+    c1.accelerate(sp1)
+    c2.accelerate(sp2)
+    c1.drive(3)
+    c2.drive(3)
+    print(f"Odometer 1: {c1.distance}")
+    print(f"Odometer 2: {c2.distance}")
 if __name__=="__main__":
     main()

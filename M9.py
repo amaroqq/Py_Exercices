@@ -1,7 +1,7 @@
 import random
 #ALL TASKS
 class Car:
-    regis=0
+    regis=''
     maxsp=0
     def __init__(self, reg, maxs):
         self.regis = reg
