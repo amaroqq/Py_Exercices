@@ -37,7 +37,7 @@ def main():
         for i in range(0,10):
             listcars[i].accelerate(random.randrange(-10, 16))
             listcars[i].drive(1)
-            if (listcars[i].distance==10000):
+            if (listcars[i].distance>=10000):
                 done=1
     for i in range(0,10):
         print(listcars[i])
