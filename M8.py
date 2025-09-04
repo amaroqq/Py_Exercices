@@ -4,8 +4,8 @@ from geopy import distance
 
 try:
     conn = mariadb.connect(
-        user="homework",
-        password="pasjkl",
+        user="PLACEHOLDER",
+        password="PLACEHOLDER",
         host="localhost",
         port=3306,
         database="flight_game"
